@@ -10,14 +10,14 @@ namespace DemoConcurrencia
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ACtualizarResultado("Iniciando proceso secuencial");
+            ACtualizarResultado("Iniciando proceso secuencial en git cambios del proyecto");
             for (int i = 0; i < 5; i++)
             {
                 Thread.Sleep(2000);
                 ACtualizarResultado($"Actividad - paso {i + 1}");
             }
             Thread.Sleep(5000);
-            ACtualizarResultado("Fin del proceso secuencial");
+            ACtualizarResultado("Fin del proceso secuencial en git cambios del proyecto");
         }
 
         private void ACtualizarResultado(string mensaje)
@@ -69,7 +69,7 @@ namespace DemoConcurrencia
         {
             _cts = new CancellationTokenSource();
             var token = _cts.Token;
-
+            
             await Task.Run(() =>
             {
                 try
@@ -95,5 +95,6 @@ namespace DemoConcurrencia
         {
             _cts?.Cancel();
         }
+
     }
 }
